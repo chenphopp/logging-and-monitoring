@@ -1,0 +1,13 @@
+filebeat.config:
+  modules:
+    path: ${path.config}/modules.d/*.yml
+    reload.enabled: false
+
+filebeat.inputs:
+- type: log
+    enabled: true
+    paths:
+      - /logs/*.playback
+
+output.logstash:
+   hosts: ["logstash-01:5400"]
